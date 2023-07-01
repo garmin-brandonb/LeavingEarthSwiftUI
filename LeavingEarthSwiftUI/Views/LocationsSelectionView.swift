@@ -7,11 +7,14 @@
 
 import SwiftUI
 
-struct LocationData {
+struct LocationData: Identifiable {
+    var id = UUID()
     var showLocationModal: Bool = false
     var isLocationSelected: Bool = false
     var maneuverDifficulty: Int? = nil
     var selectedLocation: ManeuverNames? = nil
+//    var components: [ComponentData] = []
+    var components: [ComponentData] = [ComponentData()] 
 }
 
 struct LocationsSelectionView: View {

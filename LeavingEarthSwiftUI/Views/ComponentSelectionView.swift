@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct ComponentData {
+struct ComponentData: Identifiable {
+    var id = UUID()
     var selectedComponent: String? = nil
     var showComponentsModal: Bool = false
     var isComponentSelected: Bool = false
