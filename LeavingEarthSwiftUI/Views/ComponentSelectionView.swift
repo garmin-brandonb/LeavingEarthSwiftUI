@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ComponentParameters {
+struct ComponentData {
     var selectedComponent: String? = nil
     var showComponentsModal: Bool = false
     var isComponentSelected: Bool = false
@@ -16,25 +16,25 @@ struct ComponentParameters {
 }
 
 struct ComponentSelectionView: View {
-    @Binding var componentParameters: ComponentParameters
+    @Binding var componentData: ComponentData
 
     var body: some View {
         HStack {
-            ComponentRowView(name: componentParameters.selectedComponent ?? "Select Component", action: {
-                componentParameters.showComponentsModal = true
-                componentParameters.isComponentSelected = true
+            ComponentRowView(name: componentData.selectedComponent ?? "Select Component", action: {
+                componentData.showComponentsModal = true
+                componentData.isComponentSelected = true
             })
-            if componentParameters.isComponentSelected {
-                ComponentRowView(mass: componentParameters.mass ?? 0, thrust: componentParameters.thrust ?? 0, action: {})
+            if componentData.isComponentSelected {
+                ComponentRowView(mass: componentData.mass ?? 0, thrust: componentData.thrust ?? 0, action: {})
             }
         }
-        .sheet(isPresented: $componentParameters.showComponentsModal, content: {
-            ComponentsView(showModal: $componentParameters.showComponentsModal, selectedComponent: $componentParameters.selectedComponent, mass: $componentParameters.mass, thrust: $componentParameters.thrust)
+        .sheet(isPresented: $componentData.showComponentsModal, content: {
+            ComponentsView(showModal: $componentData.showComponentsModal, selectedComponent: $componentData.selectedComponent, mass: $componentData.mass, thrust: $componentData.thrust)
         })
     }
 }
 
 
 #Preview {
-    ComponentSelectionView(componentParameters: .constant(ComponentParameters()))
+    ComponentSelectionView(componentData: .constant(ComponentData()))
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ContentView: View {
     @State private var showLocationModal = false
@@ -17,9 +18,10 @@ struct ContentView: View {
     @State private var thrust: Int? = nil
     @State private var isLocationSelected: Bool = false
     @State private var isComponentSelected: Bool = false
-    @State private var componentParameters: [ComponentParameters] = [ComponentParameters()]
-    @State private var sections: [[ComponentParameters]] = [[ComponentParameters()]]
-        
+    @State private var locationData: [LocationData] = [LocationData()]
+    @State private var componentParameters: [ComponentData] = [ComponentData()]
+    @State private var sections: [[ComponentData]] = [[ComponentData()]]
+//    @State private var sections: [[ObservableObject]] = [[LocationData(), ComponentData()]]
 
     
     var body: some View {
@@ -28,43 +30,24 @@ struct ContentView: View {
                 .font(.custom("NasalizationRg-Regular", size: 17))
             List {
                 ForEach(0..<sections.count, id: \.self) { sectionIndex in
-                    Section(header:
-                                HStack {
-                        Button(selectedLocation?.rawValue ?? "Select Maneuver") {
-                            showLocationModal = true
-                            isLocationSelected = true
-                        }
-                        .font(.custom("NasalizationRg-Regular", size: 17))
-                        Spacer()
-                        if isLocationSelected {
-                            Image(systemName: "drop")
-                                .font(.system(size: 20))
-                            NasaTextView(text: String(maneuverDifficulty ?? 0), size: 20)
-                        }
-                    })
+                    Section(header: LocationsSelectionView(locationData: $locationData[sectionIndex]))
                     {
                         ForEach(0..<sections[sectionIndex].count, id: \.self) { index in
-                            ComponentSelectionView(componentParameters: $sections[sectionIndex][index])
+                            ComponentSelectionView(componentData: $sections[sectionIndex][index])
                         }
                         Button {
-                            sections[sectionIndex].append(ComponentParameters())
+                            sections[sectionIndex].append(ComponentData())
                         } label: {
                             AddButtonView(systemName: "plus.circle")
                         }
-                }
+                    }
                 }
             }
             Button("Add Maneuver") {
-                sections.append([ComponentParameters(isComponentSelected: false)])
+                sections.append([ComponentData()])
             }
             .font(.custom("NasalizationRg-Regular", size: 17))
         }
-        .sheet(isPresented: $showLocationModal, content: {
-            LocationsView(showModal: $showLocationModal, selectedManeuver: $selectedLocation, maneuverDifficulty: $maneuverDifficulty)
-        })
-        .sheet(isPresented: $showComponentsModal, content: {
-            ComponentsView(showModal: $showComponentsModal, selectedComponent: $selectedComponent, mass: $mass, thrust: $thrust)
-        })
     }
 }
 
