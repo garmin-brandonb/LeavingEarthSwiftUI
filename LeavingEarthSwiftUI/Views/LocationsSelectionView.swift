@@ -13,8 +13,7 @@ struct LocationData: Identifiable {
     var isLocationSelected: Bool = false
     var maneuverDifficulty: Int? = nil
     var selectedLocation: ManeuverNames? = nil
-//    var components: [ComponentData] = []
-    var components: [ComponentData] = [ComponentData()] 
+    var components: [ComponentData] = [ComponentData()]
 }
 
 struct LocationsSelectionView: View {
@@ -27,6 +26,7 @@ struct LocationsSelectionView: View {
                 locationData.isLocationSelected = true
             }
             .font(.custom("NasalizationRg-Regular", size: 17))
+            .foregroundColor(.black)
             Spacer()
             if locationData.isLocationSelected {
                 Image(systemName: "drop")
@@ -40,6 +40,12 @@ struct LocationsSelectionView: View {
     }
 }
 
-#Preview {
-    LocationsSelectionView(locationData: .constant(LocationData()))
+//#Preview {
+//    LocationsSelectionView(locationData: .constant(LocationData()))
+//}
+
+struct LocationsSelectionView_Previews: PreviewProvider {
+    static var previews: some View {
+        LocationsSelectionView(locationData: .constant(LocationData()))
+    }
 }

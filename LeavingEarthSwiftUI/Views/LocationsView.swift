@@ -40,11 +40,18 @@ struct LocationsView: View {
                 }
             }
         }
+        .foregroundColor(.black)
     }
 }
 
 
 
-#Preview {
-    LocationsView(showModal: .constant(false), selectedManeuver: .constant(.EarthOrbit), maneuverDifficulty: .constant(8))
+//#Preview {
+//    LocationsView(showModal: .constant(false), selectedManeuver: .constant(.EarthOrbit), maneuverDifficulty: .constant(8))
+//}
+
+struct LocationsView_Previews: PreviewProvider {
+    static var previews: some View {
+        LocationsView(showModal: .constant(false), selectedManeuver: .constant(.EarthOrbit), maneuverDifficulty: .constant(8))
+    }
 }

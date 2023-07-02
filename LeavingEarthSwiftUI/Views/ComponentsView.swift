@@ -16,10 +16,9 @@ struct ComponentsView: View {
     var body: some View {
         
         VStack {
-            NasaTextView(text: "Select Maneuver", size: 20)
+            NasaTextView(text: "Select Component", size: 20)
                 .padding()
             List {
-                // Make into view
                 Section(header: NasaTextView(text: ComponentTypes.rocket.rawValue, size: 18)) {
                     ForEach(RocketType.allCases, id: \.self) { rocket in
                         ComponentRowView(name: rocket.rawValue, mass: Rocket(type: rocket).mass, thrust: Rocket(type: rocket).thrust, action: {
@@ -78,6 +77,11 @@ struct ComponentsView: View {
     }
 }
 
-#Preview {
-    ComponentsView(showModal: .constant(false), selectedComponent: .constant("test"), mass: .constant(2), thrust: .constant(5))
+struct ComponentsView_Previews: PreviewProvider {
+    static var previews: some View {
+        ComponentsView(showModal: .constant(false), selectedComponent: .constant("test"), mass: .constant(2), thrust: .constant(5))
+        
+    }
 }
+
+

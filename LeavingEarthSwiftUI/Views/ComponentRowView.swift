@@ -35,10 +35,17 @@ struct ComponentRowView: View {
                 }
             }
         }
+        .foregroundColor(.black)
     }
 }
 
 
-#Preview {
-    ComponentRowView(name: "Rocket", mass: 2, thrust: 0, action: {})
+//#Preview {
+//    ComponentRowView(name: "Rocket", mass: 2, thrust: 0, action: {})
+//}
+
+struct ComponentRowView_Previews: PreviewProvider {
+    static var previews: some View {
+        ComponentRowView(name: "Rocket", mass: 2, thrust: 0, action: {})
+    }
 }

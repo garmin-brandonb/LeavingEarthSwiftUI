@@ -17,7 +17,12 @@ struct NasaTextView: View {
     }
 }
 
-#Preview {
-    NasaTextView(text: "NASA", size: 30)
-}
+//#Preview {
+//    NasaTextView(text: "NASA", size: 30)
+//}
 
+struct NasaTextView_Previews: PreviewProvider {
+    static var previews: some View {
+        NasaTextView(text: "NASA", size: 30)
+    }
+}

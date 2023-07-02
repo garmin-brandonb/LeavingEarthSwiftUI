@@ -19,8 +19,13 @@ struct AddButtonView: View {
     }
 }
 
-#Preview {
-    AddButtonView(systemName: "plus.circle")
-}
+//#Preview {
+//    AddButtonView(systemName: "plus.circle")
+//}
 
+struct AddButtonView_Previews: PreviewProvider {
+    static var previews: some View {
+        AddButtonView(systemName: "plus.circle")
+    }
+}
 
