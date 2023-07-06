@@ -46,6 +46,10 @@ struct ComponentRowView: View {
 
 struct ComponentRowView_Previews: PreviewProvider {
     static var previews: some View {
-        ComponentRowView(name: "Rocket", mass: 2, thrust: 0, action: {})
+        VStack {
+            
+            ComponentRowView(name: "Rocket", mass: 10, thrust: 1, action: {})
+            ComponentRowView(name: "Rocket", mass: 2, thrust: 100, action: {})
+        }
     }
 }

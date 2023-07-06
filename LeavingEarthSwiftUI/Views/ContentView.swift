@@ -11,8 +11,9 @@ struct ContentView: View {
     @State private var locations: [LocationData] = [LocationData()]
     @State private var componentData: ComponentData = ComponentData()
     
+    
     var body: some View {
-        let gameData = GameData(locations: locations)
+//        let gameData = GameData(locations: locations)
         
         VStack {
             Text("""
@@ -27,23 +28,10 @@ struct ContentView: View {
                         ForEach(0..<locations[locationIndex].components.count, id: \.self) { componentIndex in
                             ComponentSelectionView(componentData: $locations[locationIndex].components[componentIndex])
                         }
-                        VStack {
-                            HStack {
-                                Text("Total")
-                                Image(systemName: "scalemass.fill")
-                                Text("\(gameData.totalMass)")
-                            }
-                            HStack {
-                                Text("Total")
-                                Image(systemName: "arrowshape.up.fill")
-                                Text("\(gameData.totalThrust)")
-                            }
-                            HStack {
-                                Text("Required")
-                                Image(systemName: "arrowshape.up.fill")
-                                Text("\(gameData.thrustRequired(totalMass: gameData.totalMass, maneuverDifficulty: gameData.maneuverDifficulty))")
-                            }
+                        .onDelete { offsets in
+                            onDelete(offsets: offsets, locationIndex: locationIndex)
                         }
+                        GameDataView(gameData: GameData(location: locations[locationIndex]))
                             .font(.custom("NasalizationRg-Regular", size: 16))
                         Button {
                             locations[locationIndex].components.append(ComponentData())
@@ -60,6 +48,11 @@ struct ContentView: View {
             .foregroundColor(.black)
         }
     }
+    
+    private func onDelete(offsets: IndexSet, locationIndex: Int) {
+        locations[locationIndex].components.remove(atOffsets: offsets)
+    }
+
 }
 
 //#Preview {

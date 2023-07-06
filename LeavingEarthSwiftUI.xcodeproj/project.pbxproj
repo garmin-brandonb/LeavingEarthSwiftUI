@@ -26,6 +26,7 @@
 		CA0A3FCF2A0219A4001A0ECC /* NasalizationRg-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CA0A3FCD2A021961001A0ECC /* NasalizationRg-Regular.otf */; };
 		CA0A3FD02A0219A7001A0ECC /* Persis-ZVWR8.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA0A3FCE2A021961001A0ECC /* Persis-ZVWR8.ttf */; };
 		CA832E7B2A510B7000830204 /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA832E7A2A510B7000830204 /* GameData.swift */; };
+		CA832E7F2A563E4400830204 /* GameDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA832E7E2A563E4400830204 /* GameDataView.swift */; };
 		CA920D062A4A9640006A923E /* NasaTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA920D052A4A9640006A923E /* NasaTextView.swift */; };
 		CA920D082A4A9AEA006A923E /* ComponentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA920D072A4A9AEA006A923E /* ComponentsView.swift */; };
 		CA920D0A2A4FB09B006A923E /* ComponentRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA920D092A4FB09B006A923E /* ComponentRowView.swift */; };
@@ -57,6 +58,7 @@
 		CA0A3FCE2A021961001A0ECC /* Persis-ZVWR8.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Persis-ZVWR8.ttf"; sourceTree = "<group>"; };
 		CA0A3FD12A021AB7001A0ECC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CA832E7A2A510B7000830204 /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
+		CA832E7E2A563E4400830204 /* GameDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataView.swift; sourceTree = "<group>"; };
 		CA920D052A4A9640006A923E /* NasaTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaTextView.swift; sourceTree = "<group>"; };
 		CA920D072A4A9AEA006A923E /* ComponentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentsView.swift; sourceTree = "<group>"; };
 		CA920D092A4FB09B006A923E /* ComponentRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentRowView.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				CA920D092A4FB09B006A923E /* ComponentRowView.swift */,
 				CA920D0B2A4FC4CF006A923E /* ComponentSelectionView.swift */,
 				CA920D0D2A4FD314006A923E /* AddButtonView.swift */,
+				CA832E7E2A563E4400830204 /* GameDataView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				CA0A3FB62A021553001A0ECC /* Astronaut.swift in Sources */,
 				CA920D122A50A2CA006A923E /* LocationsSelectionView.swift in Sources */,
 				CAF100F22A4806CD004E0138 /* LocationsView.swift in Sources */,
+				CA832E7F2A563E4400830204 /* GameDataView.swift in Sources */,
 				CA0A3FB52A021553001A0ECC /* Rocket.swift in Sources */,
 				CA0A3FB92A021553001A0ECC /* Hazard.swift in Sources */,
 				CA832E7B2A510B7000830204 /* GameData.swift in Sources */,
