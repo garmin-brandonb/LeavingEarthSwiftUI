@@ -30,17 +30,18 @@ struct ContentView: View {
                             onDelete(offsets: offsets, locationIndex: locationIndex)
                         }
                         
+                        Button {
+                            locations[locationIndex].components.append(ComponentData())
+                        } label: {
+                            AddButtonView(systemName: "plus.circle")
+                        }
+                        
                         if locationIndex >= 1 {
                             GameDataView(gameData: GameData(location: locations[locationIndex], totalPayload: addPayload(locationIndex: locationIndex)))
                         } else {
                             GameDataView(gameData: GameData(location: locations[locationIndex]))
                         }
                                                 
-                        Button {
-                            locations[locationIndex].components.append(ComponentData())
-                        } label: {
-                            AddButtonView(systemName: "plus.circle")
-                        }
                     }
                 }
             }
