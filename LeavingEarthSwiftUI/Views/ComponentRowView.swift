@@ -25,7 +25,9 @@ struct ComponentRowView: View {
                     // don't display anything
                 } else {
                     if let safeThrust = thrust {
-                        Image(systemName: "arrowshape.up.fill")
+                        Image(systemName: "arrowshape.left.fill")
+                            .rotationEffect(Angle(degrees: 90))
+//                        Image(systemName: "arrowshape.up.fill")
                         NasaTextView(text: "\(safeThrust)", size: 16)
                     }
                 }
@@ -50,6 +52,7 @@ struct ComponentRowView_Previews: PreviewProvider {
             
             ComponentRowView(name: "Rocket", mass: 10, thrust: 1, action: {})
             ComponentRowView(name: "Rocket", mass: 2, thrust: 100, action: {})
+            ComponentRowView(name: "Rocket", mass: 2, thrust: 0, action: {})
         }
     }
 }

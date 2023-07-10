@@ -42,6 +42,6 @@ struct ComponentSelectionView: View {
 
 struct ComponentSelectionView_Previews: PreviewProvider {
     static var previews: some View {
-        ComponentSelectionView(componentData: .constant(ComponentData(selectedComponent: "Juno", mass: 100, thrust: 100)))
+        ComponentSelectionView(componentData: .constant(ComponentData(selectedComponent: "Juno", mass: 9, thrust: 80)))
     }
 }

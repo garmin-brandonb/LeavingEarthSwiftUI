@@ -9,9 +9,11 @@ import Foundation
 
 struct GameData {
     var location: LocationData
+    var totalPayload: Int = 0
         
     var totalMass: Int {
-        var sum = 0
+//        var sum = 0
+        var sum = totalPayload
             for component in location.components {
                 sum += component.mass ?? 0
             }

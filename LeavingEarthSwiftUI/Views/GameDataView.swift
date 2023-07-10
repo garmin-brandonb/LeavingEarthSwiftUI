@@ -18,20 +18,28 @@ struct GameDataView: View {
                 Text("Total")
                 Text("Required")
             }
+            .font(.custom("NasalizationRg-Regular", size: 16))
             VStack(alignment: .leading) {
                 HStack {
                     Image(systemName: "scalemass.fill")
                     Text("\(gameData.totalMass)")
+                    Text("(\(gameData.totalPayload)) Payload")
+                        .padding(.horizontal, 5)
                 }
                 HStack {
-                    Image(systemName: "arrowshape.up.fill")
+//                    Image(systemName: "arrowshape.up.fill")
+                    Image(systemName: "arrowshape.left.fill")
+                        .rotationEffect(Angle(degrees: 90))
                     Text("\(gameData.totalThrust)")
                 }
                 HStack {
-                    Image(systemName: "arrowshape.up.fill")
+//                    Image(systemName: "arrowshape.up.fill")
+                    Image(systemName: "arrowshape.left.fill")
+                        .rotationEffect(Angle(degrees: 90))
                     Text("\(gameData.thrustRequired(totalMass: gameData.totalMass, maneuverDifficulty: gameData.maneuverDifficulty))")
                 }
             }
+            .font(.custom("NasalizationRg-Regular", size: 16))
         }
     }
 }
