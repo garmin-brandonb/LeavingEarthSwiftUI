@@ -18,15 +18,18 @@ struct ComponentData: Identifiable {
 
 struct ComponentSelectionView: View {
     @Binding var componentData: ComponentData
+    @Binding var location: LocationData
 
     var body: some View {
         HStack {
-            ComponentRowView(name: componentData.selectedComponent ?? "Select Component", action: {
-                componentData.showComponentsModal = true
-                componentData.isComponentSelected = true
-            })
             if componentData.isComponentSelected {
-                ComponentRowView(mass: componentData.mass ?? 0, thrust: componentData.thrust ?? 0, action: {})
+                ComponentRowView(name: componentData.selectedComponent ?? "", mass: componentData.mass ?? 0, thrust: componentData.thrust ?? 0, action: {})
+            } else {
+                AddButtonView(systemName: "plus.circle", text: "Select Component") {
+                    componentData.showComponentsModal = true
+                    componentData.isComponentSelected = true
+                    location.components.append(ComponentData())
+                }
             }
         }
         .sheet(isPresented: $componentData.showComponentsModal, content: {
@@ -42,6 +45,6 @@ struct ComponentSelectionView: View {
 
 struct ComponentSelectionView_Previews: PreviewProvider {
     static var previews: some View {
-        ComponentSelectionView(componentData: .constant(ComponentData(selectedComponent: "Juno", mass: 9, thrust: 80)))
+        ComponentSelectionView(componentData: .constant(ComponentData(selectedComponent: "Juno", isComponentSelected: false, mass: 9, thrust: 80)), location: .constant(LocationData()))
     }
 }

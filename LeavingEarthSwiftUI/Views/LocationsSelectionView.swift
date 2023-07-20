@@ -18,15 +18,15 @@ struct LocationData: Identifiable {
 
 struct LocationsSelectionView: View {
     @Binding var locationData: LocationData
+    var systemName: String?
+    var text: String
     
     var body: some View {
         HStack {
-            Button(locationData.selectedLocation?.rawValue ?? "Select Maneuver") {
+            AddButtonView(systemName: systemName ?? "", text: locationData.selectedLocation?.rawValue ?? text) {
                 locationData.showLocationModal = true
                 locationData.isLocationSelected = true
             }
-            .font(.custom("NasalizationRg-Regular", size: 17))
-            .foregroundColor(.black)
             Spacer()
             if locationData.isLocationSelected {
                 Image(systemName: "drop")
@@ -46,6 +46,6 @@ struct LocationsSelectionView: View {
 
 struct LocationsSelectionView_Previews: PreviewProvider {
     static var previews: some View {
-        LocationsSelectionView(locationData: .constant(LocationData()))
+        LocationsSelectionView(locationData: .constant(LocationData()), systemName: "plus.circle", text: "Add Maneuver")
     }
 }

@@ -9,13 +9,23 @@ import SwiftUI
 
 struct AddButtonView: View {
     var systemName: String
+    var text: String
+    var action: () -> Void
     
     var body: some View {
         
-        Image(systemName: systemName)
-            .font(.title)
-            .foregroundColor(.black)
-            .frame(width: 14, height: 14)
+        Button(action: action) {
+            HStack {
+                Image(systemName: systemName)
+                    .font(.title)
+                    .foregroundColor(.black)
+                    .frame(width: 14, height: 14)
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 8)
+                NasaTextView(text: text, size: 17)
+                    .foregroundColor(.black)
+            }
+        }
     }
 }
 
@@ -25,7 +35,7 @@ struct AddButtonView: View {
 
 struct AddButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        AddButtonView(systemName: "plus.circle")
+        AddButtonView(systemName: "plus.circle", text: "Add Component", action: {})
     }
 }
 

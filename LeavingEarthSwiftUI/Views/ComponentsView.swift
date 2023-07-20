@@ -41,7 +41,7 @@ struct ComponentsView: View {
                 }
                 
                 Section(header: NasaTextView(text: ComponentTypes.ionThruster.rawValue, size: 18)) {
-                    ComponentRowView(name: ComponentTypes.ionThruster.rawValue, mass: IonThruster(type: .ionThruster).mass, action: {
+                    ComponentRowView(name: ComponentTypes.ionThruster.rawValue, mass: IonThruster(type: .ionThruster).mass, thrust: IonThruster(type: .ionThruster).thrust, action: {
                         selectedComponent = ComponentTypes.ionThruster.rawValue
                         mass = IonThruster(type: .ionThruster).mass
                         showModal.toggle()

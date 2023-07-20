@@ -24,6 +24,7 @@ struct LocationsView: View {
                             Button(action: {
                                 selectedManeuver = maneuver
                                 maneuverDifficulty = difficulty
+
                                 showModal.toggle()
                             }) {
                                 HStack {
