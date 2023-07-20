@@ -9,9 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var locations: [LocationData] = [LocationData()]
-    @State private var showLocationsModal = false
-    @State private var selectedManeuver: ManeuverNames?
-    @State private var maneuverDifficulty: Int?
 
     var body: some View {
         VStack {
@@ -41,7 +38,6 @@ struct ContentView: View {
             }
             AddButtonView(systemName: "plus.circle", text: "Add Maneuver", action: {
                 locations.append(LocationData())
-                showLocationsModal = true
             })
 
         }
